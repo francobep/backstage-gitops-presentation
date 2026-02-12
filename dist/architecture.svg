@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+  <defs>
+    <filter id="glowArch">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="neonGradientArch" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1000" height="500" fill="#050505" rx="20" ry="20" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <!-- Zone: Developer Experience -->
+  <rect x="50" y="50" width="300" height="400" rx="15" fill="rgba(0, 229, 255, 0.05)" stroke="rgba(0, 229, 255, 0.3)" stroke-dasharray="5,5"/>
+  <text x="200" y="40" font-family="Inter, sans-serif" font-size="16" fill="#00e5ff" text-anchor="middle" font-weight="bold">DEVELOPER EXPERIENCE</text>
+
+  <!-- Entity: Backstage -->
+  <g transform="translate(100, 200)">
+    <rect width="200" height="120" rx="10" fill="#111" stroke="#00e5ff" stroke-width="4" filter="url(#glowArch)"/>
+    <text x="100" y="50" font-family="Inter, sans-serif" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">Backstage</text>
+    <text x="100" y="90" font-family="Inter, sans-serif" font-size="16" fill="#aaa" text-anchor="middle">(IDP Portal)</text>
+  </g>
+
+  <!-- Entity: Developer -->
+  <g transform="translate(140, 80)">
+     <circle cx="60" cy="40" r="30" fill="#fff"/>
+     <text x="60" y="90" font-family="Inter, sans-serif" font-size="14" fill="#fff" text-anchor="middle">Dev</text>
+  </g>
+  <path d="M 200 150 L 200 190" stroke="#fff" stroke-width="3" marker-end="url(#arrowW)"/>
+
+
+  <!-- Zone: GitOps Engine -->
+  <rect x="380" y="50" width="240" height="400" rx="15" fill="rgba(255, 0, 255, 0.05)" stroke="rgba(255, 0, 255, 0.3)" stroke-dasharray="5,5"/>
+  <text x="500" y="40" font-family="Inter, sans-serif" font-size="16" fill="#ff00ff" text-anchor="middle" font-weight="bold">SOURCE OF TRUTH</text>
+
+  <!-- Entity: Git -->
+  <g transform="translate(420, 200)">
+    <rect width="160" height="120" rx="10" fill="#111" stroke="#ff00ff" stroke-width="4" filter="url(#glowArch)"/>
+    <text x="80" y="50" font-family="Inter, sans-serif" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">Git Repo</text>
+    <text x="80" y="90" font-family="Inter, sans-serif" font-size="16" fill="#aaa" text-anchor="middle">YAML Config</text>
+  </g>
+
+  <!-- Zone: Runtime -->
+  <rect x="650" y="50" width="300" height="400" rx="15" fill="rgba(0, 255, 127, 0.05)" stroke="rgba(0, 255, 127, 0.3)" stroke-dasharray="5,5"/>
+  <text x="800" y="40" font-family="Inter, sans-serif" font-size="16" fill="#00ff7f" text-anchor="middle" font-weight="bold">RUNTIME INFRASTRUCTURE</text>
+
+  <!-- Entity: ArgoCD -->
+  <g transform="translate(700, 100)">
+    <rect width="200" height="100" rx="10" fill="#111" stroke="#ffcc00" stroke-width="3" />
+    <text x="100" y="45" font-family="Inter, sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">ArgoCD</text>
+    <text x="100" y="75" font-family="Inter, sans-serif" font-size="14" fill="#aaa" text-anchor="middle">Controller</text>
+  </g>
+
+  <!-- Entity: Kubernetes -->
+  <g transform="translate(700, 250)">
+    <rect width="200" height="120" rx="10" fill="#111" stroke="#00ff7f" stroke-width="4" filter="url(#glowArch)"/>
+    <text x="100" y="50" font-family="Inter, sans-serif" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">Kubernetes</text>
+    <text x="100" y="90" font-family="Inter, sans-serif" font-size="16" fill="#aaa" text-anchor="middle">Pods / Svc</text>
+  </g>
+
+  <!-- Connections -->
+  
+  <!-- Backstage -> Git -->
+  <path d="M 300 260 L 410 260" stroke="#00e5ff" stroke-width="4" marker-end="url(#arrowCyan)"/>
+  <text x="355" y="250" font-family="Fira Code, monospace" font-size="12" fill="#00e5ff" text-anchor="middle">Push</text>
+
+  <!-- Git -> Argo -->
+  <path d="M 580 230 C 620 230, 620 150, 690 150" stroke="#ff00ff" stroke-width="4" marker-end="url(#arrowMagenta)" fill="none"/>
+  <text x="630" y="180" font-family="Fira Code, monospace" font-size="12" fill="#ff00ff" text-anchor="middle">Watch</text>
+
+  <!-- Argo -> K8s -->
+  <path d="M 800 200 L 800 240" stroke="#ffcc00" stroke-width="4" marker-end="url(#arrowYellow)"/>
+  <text x="840" y="225" font-family="Fira Code, monospace" font-size="12" fill="#ffcc00" text-anchor="middle">Sync</text>
+
+  <!-- K8s -> Backstage (Read) -->
+  <path d="M 700 310 C 500 450, 500 450, 250 320" stroke="#fff" stroke-width="2" stroke-dasharray="8,8" fill="none" marker-end="url(#arrowW)"/>
+  <text x="500" y="440" font-family="Fira Code, monospace" font-size="14" fill="#fff" text-anchor="middle">Read Status (Plugin)</text>
+
+  <!-- Markers -->
+  <marker id="arrowW" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#fff"/></marker>
+  <marker id="arrowCyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#00e5ff"/></marker>
+  <marker id="arrowMagenta" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#ff00ff"/></marker>
+  <marker id="arrowYellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#ffcc00"/></marker>
+
+</svg>

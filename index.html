@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backstage + GitOps + K8s</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Fira+Code&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Título -->
+      <section>
+        <h1>Modernizando la DevExp</h1>
+        <h3 class="text-gradient">Backstage + GitOps + Kubernetes</h3>
+        <p>Construyendo una Plataforma Interna de Desarrollo (IDP) Escalable</p>
+        <div class="card">
+          <small>Presentado por: <span class="highlight">Antigravity</span></small>
+        </div>
+      </section>
+
+      <!-- Slide 2: El Problema -->
+      <section>
+        <h2>El Desafío Actual</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+          <div class="card">
+            <ul>
+              <li class="fragment">Crear microservicios es lento.</li>
+              <li class="fragment">Inconsistencia en configuraciones.</li>
+              <li class="fragment">"¿Dónde está mi servicio?"</li>
+            </ul>
+          </div>
+          <!-- Mockup: Catalog (visual context of complexity) -->
+          <div class="fragment fade-in-then-semi-out">
+            <img src="/backstage_catalog.png" style="border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: El Stack de Solución -->
+      <section>
+        <h2>El Stack Tecnológico</h2>
+        <div style="display: flex; justify-content: space-around; align-items: center; gap: 20px;">
+          <div class="card fragment fade-up">
+            <h4>Backstage</h4>
+            <small>Portal</small>
+          </div>
+          <div class="fragment" style="font-size: 2em;">+</div>
+          <div class="card fragment fade-up">
+            <h4>ArgoCD</h4>
+            <small>GitOps</small>
+          </div>
+          <div class="fragment" style="font-size: 2em;">+</div>
+          <div class="card fragment fade-up">
+            <h4>K8s</h4>
+            <small>Runtime</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Arquitectura Detallada (MEJORADA) -->
+      <section>
+        <h3>Arquitectura de la Solución</h3>
+        <div style="width: 100%; height: 600px; display: flex; align-items: center; justify-content: center;">
+          <img src="/architecture.svg" alt="Arquitectura Backstage GitOps" style="width: 100%; max-height: 100%;">
+        </div>
+      </section>
+
+      <!-- Slide 5: Día 1 - Creación -->
+      <section>
+        <h3>Día 1: Creación de Apps</h3>
+        <p>Scaffolding Inteligente en minutos.</p>
+
+        <div class="r-stack">
+          <!-- View 1: The Form Mockup -->
+          <div class="fragment fade-out" data-fragment-index="1">
+            <img src="/backstage_form.png"
+              style="border-radius: 10px; box-shadow: 0 0 20px rgba(0,229,255,0.3); width: 80%;">
+            <p><small>1. El desarrollador completa los metadatos requeridos.</small></p>
+          </div>
+
+          <!-- View 2: The Flow Diagram -->
+          <div class="fragment fade-in" data-fragment-index="1">
+            <img src="/scaffolding.svg" alt="Flujo de Creación" style="width: 100%;">
+            <p><small>2. Backstage orquesta la creación del Repo, CI/CD y registro en ArgoCD.</small></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Día 2 - Promoción entre Ambientes -->
+      <section>
+        <h3>Día 2: Promoción de Ambientes</h3>
+        <p>Gestionando Dev, Test y Prod desde Backstage</p>
+
+        <div class="card" style="background: transparent; border: none; box-shadow: none;">
+          <img src="/promotion.svg" alt="Flujo de Promoción" style="width: 100%;">
+        </div>
+        <div class="card fragment">
+          <small>El desarrollador solo selecciona "Promocionar versión X a Test". Backstage hace el commit en el archivo
+            <code>values-test.yaml</code> correspondiente.</small>
+        </div>
+      </section>
+
+      <!-- Slide 7: Ops-as-Code -->
+      <section>
+        <h3>Gestión "Ops-as-Code"</h3>
+        <div class="card">
+          <p>Acciones automatizadas sin acceso directo a kubectl:</p>
+          <ul>
+            <li class="fragment">🔄 Reiniciar Pods</li>
+            <li class="fragment">⬆️ Escalar Réplicas</li>
+            <li class="fragment">🔙 Rollback de Versión</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Slide 8: Observabilidad (MEJORADA) -->
+      <section>
+        <h3>Observabilidad en Tiempo Real</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+          <div>
+            <img src="/backstage_k8s.png"
+              style="border-radius: 10px; box-shadow: 0 0 20px rgba(0,255,127,0.3); width: 100%;">
+          </div>
+          <div class="card">
+            <ul>
+              <li><strong>Plugin K8s + ArgoCD</strong></li>
+              <li>Estado de salud de Pods.</li>
+              <li>Logs en vivo.</li>
+              <li>Uso de CPU/RAM.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Aceleración con IA -->
+      <section>
+        <h3>Acelerando con IA (Claude/Gemini)</h3>
+        <div class="card" style="background: transparent; border: none; box-shadow: none;">
+          <img src="/ai-mindmap.svg" alt="Mapa Mental IA" style="width: 90%;">
+        </div>
+        <p class="fragment fade-up"><small>La IA convierte semanas de configuración en días de implementación.</small>
+        </p>
+      </section>
+
+      <!-- Slide 10: Cierre -->
+      <section>
+        <h1>Gracias</h1>
+        <p>Ready to build?</p>
+        <small>Creado con Reveal.js & Vite</small>
+      </section>
+
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

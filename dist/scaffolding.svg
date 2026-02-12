@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250">
+  <defs>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="250" fill="#0a0a0a" rx="15" ry="15" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <!-- Step 1 -->
+  <circle cx="100" cy="125" r="40" fill="none" stroke="#ffcc00" stroke-width="3" filter="url(#glow2)"/>
+  <text x="100" y="130" font-family="Inter, sans-serif" font-size="24" fill="#ffcc00" text-anchor="middle" font-weight="bold">1</text>
+  <text x="100" y="190" font-family="Inter, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Formulario</text>
+
+  <!-- Step 2 -->
+  <circle cx="300" cy="125" r="40" fill="none" stroke="#00e5ff" stroke-width="3" filter="url(#glow2)"/>
+  <text x="300" y="130" font-family="Inter, sans-serif" font-size="24" fill="#00e5ff" text-anchor="middle" font-weight="bold">2</text>
+  <text x="300" y="190" font-family="Inter, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Template</text>
+
+  <!-- Step 3 -->
+  <circle cx="500" cy="125" r="40" fill="none" stroke="#ff00ff" stroke-width="3" filter="url(#glow2)"/>
+  <text x="500" y="130" font-family="Inter, sans-serif" font-size="24" fill="#ff00ff" text-anchor="middle" font-weight="bold">3</text>
+  <text x="500" y="190" font-family="Inter, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Pull Request</text>
+  
+  <!-- Step 4 -->
+  <circle cx="700" cy="125" r="40" fill="none" stroke="#00ff7f" stroke-width="3" filter="url(#glow2)"/>
+  <text x="700" y="130" font-family="Inter, sans-serif" font-size="24" fill="#00ff7f" text-anchor="middle" font-weight="bold">4</text>
+  <text x="700" y="190" font-family="Inter, sans-serif" font-size="14" fill="#e0e0e0" text-anchor="middle">Despliegue</text>
+
+  <!-- Connectors -->
+  <line x1="140" y1="125" x2="260" y2="125" stroke="#444" stroke-width="2" />
+  <line x1="340" y1="125" x2="460" y2="125" stroke="#444" stroke-width="2" />
+  <line x1="540" y1="125" x2="660" y2="125" stroke="#444" stroke-width="2" />
+
+</svg>
